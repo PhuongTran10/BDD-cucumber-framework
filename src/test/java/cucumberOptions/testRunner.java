@@ -8,10 +8,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = "stepDefinitions",
+       // dryRun = true,
         monochrome = true,
         plugin = {"pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@account"
+        tags = "@datatable_scenario"
 )
 public class testRunner {
 }
