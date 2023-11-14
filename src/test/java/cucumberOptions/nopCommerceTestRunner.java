@@ -6,12 +6,12 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/nopCommerce/features",
-        glue = "nopCommerce.stepDefinitions",
+        glue = "nopCommerce/stepDefinitions",
         // dryRun = true,
         monochrome = true,
         plugin = {"pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@register_login"
+        tags = "@registerAndLogin"
 )
 public class nopCommerceTestRunner {
 }

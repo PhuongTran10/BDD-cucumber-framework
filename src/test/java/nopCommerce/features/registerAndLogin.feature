@@ -2,9 +2,9 @@
 Feature:  Register and Login
 
 
-  @datatable_step
-  Scenario : Register to system and login
-    Given Open Register page
+  @register_login
+  Scenario: Register to system and login
+
     When Input to First name
     And Input to Last name
     And Input to Email
