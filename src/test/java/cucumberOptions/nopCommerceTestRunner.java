@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/nopCommerce/features",
         glue = "nopCommerce/stepDefinitions",
-        // dryRun = true,
         monochrome = true,
         plugin = {"pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,

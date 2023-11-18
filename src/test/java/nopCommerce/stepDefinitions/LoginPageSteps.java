@@ -13,16 +13,21 @@ public class LoginPageSteps {
 
     WebDriver driver;
     UserLoginPageObject loginPage;
+    TextContext testContext;
+    String email, pass;
 
-    public LoginPageSteps() {
+    public LoginPageSteps(TextContext testContext) {
         this.driver = Hooks.openAndQuitBrowser();
+        this.testContext = testContext;
         loginPage = PageGeneratorManager.getUserLoginPage(driver);
+        email = (String) testContext.getDataContext().getContext(Context.EMAIL);
+        pass = (String) testContext.getDataContext().getContext(Context.PASSWORD);
     }
 
     @When("Submit valid infor to login form")
     public void submitValidInforToLoginForm() {
-        System.out.println(RegisterPageSteps.email + RegisterPageSteps.pass);
-        loginPage.loginAsUser(RegisterPageSteps.email, RegisterPageSteps.pass);
+        System.out.println(pass);
+        loginPage.loginAsUser(email, pass);
     }
 
 

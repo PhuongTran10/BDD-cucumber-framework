@@ -19,12 +19,12 @@
 
     <dependencies>
 
-    <!-- Selenium Java -->
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>${selenium.version}</version>
-    </dependency>
+        <!-- Selenium Java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -32,12 +32,12 @@
             <version>7.14.0</version>
         </dependency>
 
-    <dependency>
-        <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-junit</artifactId>
-        <version>7.14.0</version>
-        <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.14.0</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.github.javafaker</groupId>
@@ -48,6 +48,11 @@
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
             <version>${report.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>7.14.0</version>
         </dependency>
 
     </dependencies>
@@ -81,8 +86,15 @@
                     <includes>
                         <include>**/*/nopCommerceTestRunner.java</include>
                     </includes>
-
-
+<!--                    <parallel>classes</parallel>-->
+<!--                    <forkCount>2</forkCount>-->
+<!--                    <threadCount>3</threadCount>-->
+<!--                    <reuseForks>true</reuseForks>-->
+<!--                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>-->
+<!--                    <testFailureIgnore>true</testFailureIgnore>-->
+<!--                    <includes>-->
+<!--                        <include>**/*Runner.java</include>-->
+<!--                    </includes>-->
                 </configuration>
             </plugin>
             <!-- Generate report -->

@@ -12,21 +12,25 @@ import utilities.DataHelper;
 
 public class RegisterPageSteps {
     WebDriver driver;
-    static String username, pass;
-    static String email;
+    static String username;
+    TextContext testContext;
+    String email, pass;
     DataHelper dataTest;
     UserHomePageObject homePage;
     UserRegisterPageObject registerPage;
     BasePage commonPage;
 
-    public RegisterPageSteps() {
+    public RegisterPageSteps(TextContext testContext) {
         this.driver = Hooks.openAndQuitBrowser();
+        this.testContext = testContext;
         homePage = PageGeneratorManager.getUserHomePage(driver);
         homePage.clickToRegisterLink();
         registerPage = PageGeneratorManager.getUserRegisterPage(driver);
         commonPage = BasePage.getBasePageObject();
         dataTest = DataHelper.getDataHelper();
-        email = dataTest.getEmailAddress();
+        testContext.getDataContext().setContext(Context.EMAIL, dataTest.getEmailAddress());
+
+        email = (String) testContext.getDataContext().getContext(Context.EMAIL);
         pass = dataTest.getPassword();
     }
 
@@ -67,10 +71,10 @@ public class RegisterPageSteps {
 
     @When("Input to {string} textbox with value {string}")
     public void inputToTextboxWithValue(String fieldID, String value) {
-        if(fieldID.equalsIgnoreCase("Email")){
+        if (fieldID.equalsIgnoreCase("Email")) {
             value = email;
-        } else if(fieldID.equals("Password")){
-            pass = value;
+        } else if (fieldID.equals("Password")) {
+            testContext.getDataContext().setContext(Context.PASSWORD, value);
         }
         commonPage.inputToTextboxByID(driver, value, fieldID);
     }
