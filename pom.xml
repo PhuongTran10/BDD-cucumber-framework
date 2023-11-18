@@ -101,7 +101,7 @@
                             <projectName>Nopcommerce cucumber report</projectName>
                             <skip>false</skip>
                             <outputDirectory>${project.build.directory}/site/cucumber-reporting</outputDirectory>
-                            <inputDirectory>${project.build.directory}/site/cucumber.json</inputDirectory>
+                            <inputDirectory>${project.build.directory}/site</inputDirectory>
                             <jsonFiles>
                                 <param>**/*.json</param>
                             </jsonFiles>

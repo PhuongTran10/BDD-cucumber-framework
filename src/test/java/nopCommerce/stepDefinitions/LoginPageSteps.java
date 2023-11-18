@@ -13,15 +13,16 @@ public class LoginPageSteps {
 
     WebDriver driver;
     UserLoginPageObject loginPage;
-    public LoginPageSteps(){
+
+    public LoginPageSteps() {
         this.driver = Hooks.openAndQuitBrowser();
         loginPage = PageGeneratorManager.getUserLoginPage(driver);
     }
 
     @When("Submit valid infor to login form")
     public void submitValidInforToLoginForm() {
-System.out.println(RegisterPageSteps.email+RegisterPageSteps.pass);
-        loginPage.loginAsUser(RegisterPageSteps.email,RegisterPageSteps.pass);
+        System.out.println(RegisterPageSteps.email + RegisterPageSteps.pass);
+        loginPage.loginAsUser(RegisterPageSteps.email, RegisterPageSteps.pass);
     }
 
 
